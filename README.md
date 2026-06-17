@@ -7,13 +7,13 @@ O **Passaporte.io** é um sistema completo de gestão de eventos e venda de ingr
 ## 📸 Capturas de Tela
 
 <div align="center">
-  <img src="imgReadme//para/home.png" alt="Home - Lista de Eventos" width="48%">
-  <img src="imgReadme/para/detalhes.png" alt="Tela de Detalhes do Evento" width="48%">
+  <img src="imgReadme/home.png" alt="Home - Lista de Eventos" width="48%">
+  <img src="imgReadme/detalhes.png" alt="Tela de Detalhes do Evento" width="48%">
 </div>
 <br>
 <div align="center">
-  <img src="imgReadme/para/cadastro-evento.png" alt="Formulário de Cadastro de Eventos" width="48%">
-  <img src="imgReadme/para/ingressos.png" alt="Tela de Ingressos Adquiridos" width="48%">
+  <img src="imgReadme/cadastro-evento.png" alt="Formulário de Cadastro de Eventos" width="48%">
+  <img src="imgReadme/ingressos.png" alt="Tela de Ingressos Adquiridos" width="48%">
 </div>
 
 ---
