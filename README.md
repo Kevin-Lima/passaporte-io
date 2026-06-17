@@ -1,58 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Passaporte.io 🎟️
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+O **Passaporte.io** é um sistema completo de gestão de eventos e venda de ingressos. Construído com foco absoluto na experiência do usuário (UX/UI), a plataforma conecta criadores de eventos a pessoas em busca de novas experiências, oferecendo um fluxo seguro, rápido e responsivo.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📸 Capturas de Tela
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<div align="center">
+  <img src="imgReadme//para/home.png" alt="Home - Lista de Eventos" width="48%">
+  <img src="imgReadme/para/detalhes.png" alt="Tela de Detalhes do Evento" width="48%">
+</div>
+<br>
+<div align="center">
+  <img src="imgReadme/para/cadastro-evento.png" alt="Formulário de Cadastro de Eventos" width="48%">
+  <img src="imgReadme/para/ingressos.png" alt="Tela de Ingressos Adquiridos" width="48%">
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🎯 Objetivo do Projeto
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+O projeto foi desenvolvido para simplificar o ciclo de vida de um evento. Ele resolve o problema de organizadores que precisam de uma plataforma limpa para divulgar suas atividades e controlar a capacidade de público, ao mesmo tempo em que oferece aos participantes uma carteira digital segura para gerenciar seus ingressos gerados de forma única.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ✨ Principais Funcionalidades
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+O sistema é dividido em dois perfis de acesso, garantindo segurança e separação de responsabilidades (ACL):
 
-## Agentic Development
+**Para Participantes:**
+* Exploração de eventos na vitrine pública.
+* Inscrição em eventos (geração automática de ingresso com código único `TKT-XXXXXX`).
+* Carteira digital (Dashboard) para visualizar ingressos confirmados.
+* Cancelamento de inscrição com devolução automática da vaga.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+**Para Organizadores:**
+* Dashboard gerencial com lista de eventos próprios.
+* CRUD completo: Criação, leitura, edição e exclusão de eventos.
+* Upload e gestão de banners de divulgação.
+* Controle rigoroso de capacidade e vagas disponíveis.
 
-```bash
-composer require laravel/boost --dev
+**Gerais:**
+* Telas de autenticação (Login/Registro) modernas com *Split-Screen* e alternância de visibilidade de senha (funcionalidade de ocultar/mostrar senha com um clique).
+* Feedbacks visuais dinâmicos (Toasts de sucesso ou erro que desaparecem automaticamente após 4 segundos) para todas as ações do sistema.
+* Interface 100% responsiva baseada em um sistema de temas unificado (`data-theme="light"`).
 
-php artisan boost:install
-```
+---
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## 🛠️ Tecnologias Utilizadas
 
-## Contributing
+O projeto foi construído utilizando o ecossistema moderno do PHP, garantindo performance e facilidade de manutenção:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* **Backend:** [PHP 8+](https://www.php.net/) e [Laravel 11+](https://laravel.com/)
+* **Frontend:** [Tailwind CSS](https://tailwindcss.com/) e [DaisyUI](https://daisyui.com/) para componentização ágil e estilização moderna.
+* **Interatividade:** [Alpine.js](https://alpinejs.dev/) (manipulação de DOM, alternância de senhas e fechamento de Toasts de forma nativa).
+* **Autenticação:** Laravel Breeze (totalmente customizado e integrado ao layout geral do sistema).
+* **Banco de Dados:** SQLite (padrão para desenvolvimento local rápido) / MySQL.
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ⚙️ Arquitetura de Rotas e Segurança (Passo a Passo)
 
-## Security Vulnerabilities
+A estrutura de execução das requisições segue uma ordem lógica rigorosa dentro do arquivo `routes/web.php` para evitar conflitos de rotas dinâmicas e garantir o controle de acesso:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```text
+┌────────────────────────────────────────────────────────┐
+│                      Rotas Web                         │
+└───────────────────────────┬────────────────────────────┘
+                            │
+            ┌───────────────┴───────────────┐
+            ▼                               ▼
+    [Rotas Públicas]              [Rotas Autenticadas]
+            │                               │
+    ┌───────┴───────┐               ┌───────┴───────┐
+    ▼               ▼               ▼               ▼
+[/] Home     [/events/{event}]  [Organizador]     [Participante/Geral]
+             Ver Detalhes       - /events/create   - /dashboard
+                                - /events (Store)  - /events/{event}/attend
+                                - /events/edit     - /events/{event}/cancel
+                                - /events (Delete) - /profile (Breeze)
